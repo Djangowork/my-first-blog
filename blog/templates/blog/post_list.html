@@ -1,0 +1,25 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+    <title>Blogui</title>
+</head>
+<body>
+<div id="titulo">
+    <h1>Django Working Blog</h1>
+</div>
+
+{% for post in posts %}
+    <div class="conteudo">
+        <fieldset>
+            <legend><h2><b>{{ post.title }}</b></h2></legend>
+            <p>published: {{ post.created_date }}</p>
+            <p>{{ post.text|linebreaksbr }}</p>
+        </fieldset>
+    </div>
+{% endfor %}
+</body>
+</html>
